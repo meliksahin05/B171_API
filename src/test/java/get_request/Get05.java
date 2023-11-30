@@ -64,6 +64,5 @@ public class Get05 extends PetStoreBaseUrl {
                         "[2].category.id",equalTo(0),
                         "[2].photoUrls[0]",equalTo("string"),
                         "[2].tags[0]. id",equalTo(0));
-
     }
 }
