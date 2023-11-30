@@ -10,6 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.*;
 
 public class Get05 extends PetStoreBaseUrl {
 
@@ -25,7 +26,7 @@ public class Get05 extends PetStoreBaseUrl {
         And
             Listede id değeri 9898 olan bir eleman olmalı
         And
-            Listede name değeri "Pamuk" olan bir eleman olmalı
+            Listede name değeri "Evlat" olan bir eleman olmalı
         And
             Listede name değerleri "Pamuk", "doggie", "fish" olan elemanlar olmalı
         And
@@ -54,7 +55,15 @@ public class Get05 extends PetStoreBaseUrl {
         response.
                 then()
                 .statusCode(200)
-                .contentType(ContentType.JSON);
+                .contentType(ContentType.JSON)
+                .body("id" ,hasItem(9898)
+                        ,"name",hasItem("Evlat"),
+                        "name",hasItems("Evlat","doggie","fish"),
+                        "id",hasSize(greaterThan(200)),
+                        "id",hasSize(lessThan(558)),
+                        "[2].category.id",equalTo(0),
+                        "[2].photoUrls[0]",equalTo("string"),
+                        "[2].tags[0]. id",equalTo(0));
 
     }
 }
