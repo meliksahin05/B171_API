@@ -40,14 +40,18 @@ public class Get08 extends JsonPlaceHolderBaseUrl {
 //        response.prettyPrint();
 
         //Do assertions
+        assertEquals(200,response.statusCode());
+
         JsonPath json = response.jsonPath();
+
+
 
         List<Object> idList = json.getList("id");
         System.out.println("idList = " + idList);
 
 //        2) "Id"leri 190 dan büyük olanları konsola yazdırın
 
-        List<Integer> idListHigherThan190 = json.getList("findAll{it.id>190}.id");
+        List<Object> idListHigherThan190 = json.getList("findAll{it.id>190}.id");
         System.out.println("idListHigherThan190 = " + idListHigherThan190);
 
         assertEquals(10,idListHigherThan190.size());
@@ -67,12 +71,10 @@ public class Get08 extends JsonPlaceHolderBaseUrl {
         assertTrue(titleList.contains("delectus aut autem"));
 
         // Unique Değerler: TC No, Okul No, Tel No, Mail, Username
-        List<Integer> id = json.getList("findAll{it.title== 'aliquam aut quasi'}.id");
-        System.out.println("id = " + id);
-
-        int id26 = id.get(0);
-        System.out.println("id26 = " + id26);
-
+        List<Integer> id = json.getList("findAll{it.title=='delectus aut autem'}.id");
+        System.out.println("ID: " + id);
+        int idcik = id.get(0);
+        System.out.println(idcik);
 
     }
 
