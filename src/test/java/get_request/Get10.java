@@ -65,7 +65,7 @@ public class Get10 extends HerOkuAppBaseUrl {
         assertEquals(expectedData.get("totalprice"),actuaData.get("totalprice"));
         assertEquals(expectedData.get("depositpaid"),actuaData.get("depositpaid"));
 
-//        1nd way (Bunu kullanmak yerine json i kullanmak daha mantikli
+//        1nd way (Bunu kullanmak yerine json i kullanmak daha mantikli)
         assertEquals(bookingDates.get("checkin"),((Map)actuaData.get("bookingdates")).get("checkin"));
         assertEquals(bookingDates.get("checkout"),((Map)actuaData.get("bookingdates")).get("checkout"));
         assertEquals(expectedData.get("additionalneeds"),actuaData.get("additionalneeds"));
