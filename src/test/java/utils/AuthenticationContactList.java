@@ -13,7 +13,11 @@ public class AuthenticationContactList {
                 "    \"password\": \"1234567\"\n" +
                 "}";
 
-        Response response = given().body(body).contentType(ContentType.JSON).when().post("https://thinking-tester-contact-list.herokuapp.com/users/login");
+        Response response = given().
+                body(body).
+                contentType(ContentType.JSON).
+                when().
+                post("https://thinking-tester-contact-list.herokuapp.com/users/login");
         return response.jsonPath().getString("token");
     }
 }

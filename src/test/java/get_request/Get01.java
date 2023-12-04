@@ -37,4 +37,20 @@ public class Get01 {
 
     }
 
+    @Test   //ikinci yontem
+    public void get01(){
+
+        RestAssured.baseURI = "https://restful-booker.herokuapp.com";
+        RestAssured.basePath = "/booking/10";
+
+        Response response = given().when().get();
+//        response.prettyPrint();
+
+        response.then().
+                statusCode(200).
+                contentType(ContentType.JSON).
+                statusLine("HTTP/1.1 200 OK");
+
+    }
+
 }
