@@ -49,11 +49,13 @@ public class Post02 extends JsonPlaceHolderBaseUrl {
         payLoad.put("title","Tidy your room");
         payLoad.put("completed", false);
 
+//        System.out.println("payLoad = " + payLoad);
+
 
         // Send the request and get the response
         // Serialization: Java datalarının Json datalarına dönüştürülmesi.
         Response response = given(specJsonPlaceHolder).body(payLoad).when().post("{first}");
-        response.prettyPrint();
+//        response.prettyPrint();
 
         //Do assertions
         //1st way
